@@ -1,8 +1,8 @@
 // app/layout.tsx
 import type { Metadata } from 'next'
 import { Noto_Serif_TC } from 'next/font/google'
-import Navbar from '@/app/[locale]/_components/Navbar';
-import Footer from '@/app/[locale]/_components/Footer';
+import Navbar from './_components/Navbar';
+import Footer from './_components/Footer';
 import UIProvider from '../UIConfig/UIProvider';
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
