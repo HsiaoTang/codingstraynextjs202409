@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 import i18nMiddleware from './i18nConfig/i18nMiddleware';
-import { locales } from './i18nConfig/i18n';
+import { locales } from './i18nConfig/i18nConstant';
 
 export default async function middleware(request: NextRequest) {
   const response = i18nMiddleware(request, locales);

@@ -1,0 +1,1 @@
+export const locales: Array<string> = ['en', 'zh_TW'] as const;

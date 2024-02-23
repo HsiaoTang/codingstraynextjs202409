@@ -8,9 +8,6 @@ import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import CombinedProvider from './CombinedProviders';
 import StoreProvider from '../ReduxConfig/StoreProvider';
-import { AppStore, makeStore } from '../ReduxConfig/store';
-import { useSelector } from 'react-redux';
-import { current } from '@reduxjs/toolkit';
 
 config.autoAddCss = false; 
 

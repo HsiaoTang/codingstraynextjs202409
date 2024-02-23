@@ -1,6 +1,8 @@
 {
   "index": {
     "title": "CodingStray",
-    "search": "搜尋"
+    "search": "搜尋",
+    "zh_TW": "繁體中文",
+    "en": "英文"
   }
 }

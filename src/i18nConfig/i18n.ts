@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation';
 import { getRequestConfig } from 'next-intl/server';
-
-export const locales: Array<string> = ['en', 'zh_TW'];
+import { locales } from './i18nConstant';
 
 export default getRequestConfig(async ({locale}) => {
   // Validate that the incoming `locale` parameter is valid
