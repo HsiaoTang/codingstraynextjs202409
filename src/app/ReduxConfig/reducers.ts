@@ -1,4 +1,4 @@
-import localeReducer from '../localeSlice';
+import localeReducer from '@/src/i18nConfig/localeSlice';
 import { combineReducers } from "@reduxjs/toolkit";
 
 const reducers = combineReducers({

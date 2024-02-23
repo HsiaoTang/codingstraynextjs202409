@@ -22,7 +22,7 @@ const globalFont = Noto_Serif_TC({
 
 export const metadata: Metadata = {
   title: 'CodingStray',
-  icons: { icon: ['imgs/logo/favicon.ico'], apple: ['imgs/logo/apple-touch-icon.png'] }
+  icons: { icon: ['/imgs/logo/favicon.ico'], apple: ['/imgs/logo/apple-touch-icon.png'] }
 }
 
 export default function RootLayout({

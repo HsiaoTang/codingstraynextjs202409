@@ -1,24 +1,13 @@
-import createMiddleware from 'next-intl/middleware';
-import { pathnames, locales, localePrefix } from './i18nConfig/config';
+import { NextRequest } from 'next/server';
+import i18nMiddleware from './i18nConfig/i18nMiddleware';
+import { locales } from './i18nConfig/i18n';
 
-export default createMiddleware({
-  defaultLocale: 'zh_TW',
-  locales,
-  pathnames,
-  localePrefix
-});
-
+export default async function middleware(request: NextRequest) {
+  const response = i18nMiddleware(request, locales);
+  return response;
+}
+ 
 export const config = {
-  matcher: [
-    // Enable a redirect to a matching locale at the root
-    '/',
-
-    // Set a cookie to remember the previous locale for
-    // all requests that have a locale prefix
-    '/(zh_TW|en)/:path*',
-
-    // Enable redirects that add missing locales
-    // (e.g. `/pathnames` -> `/en/pathnames`)
-    '/((?!_next|_vercel|.*\\..*).*)'
-  ]
+  // Match only internationalized pathnames
+  matcher: ['/']
 };
