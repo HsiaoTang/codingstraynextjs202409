@@ -1,4 +1,3 @@
-// app/layout.tsx
 import type { Metadata } from 'next'
 import { Noto_Serif_TC } from 'next/font/google'
 import Navbar from './_components/Navbar';
@@ -8,6 +7,8 @@ import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import CombinedProvider from './CombinedProviders';
 import StoreProvider from '../ReduxConfig/StoreProvider';
+import { NextIntlClientProvider, useMessages } from 'next-intl';
+import LoadingProgress from './_components/LoadingProgress';
 
 config.autoAddCss = false; 
 
@@ -35,7 +36,9 @@ export default function RootLayout({
         <CombinedProvider providers={[
           [UIProvider, {}],
           [StoreProvider, {}],
+          [NextIntlClientProvider, {messages: useMessages()}],
         ]}>
+          <LoadingProgress />
           <Navbar picPath='' searchKey=''/>
             {children}
           <Footer zIndex='sticky'/>

@@ -2,7 +2,9 @@
   "index": {
     "title": "CodingStray",
     "search": "Search",
-    "zh_TW": "Traditional Chinese",
-    "en": "English"
+    "zh_TW": "繁體中文",
+    "en": "English",
+    "website_intro_pt1": "Share experience. Share feelings.",
+    "website_intro_pt2": "Share the bits and pieces of life."
   }
 }

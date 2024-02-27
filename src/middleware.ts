@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 import i18nMiddleware from './i18nConfig/i18nMiddleware';
-import { locales } from './i18nConfig/i18nConstant';
+import { locales } from './config';
 
 export default async function middleware(request: NextRequest) {
   const response = i18nMiddleware(request, locales);
@@ -9,5 +9,6 @@ export default async function middleware(request: NextRequest) {
  
 export const config = {
   // Match only internationalized pathnames
-  matcher: ['/', '/(zh_TW|en)/:path*']
+  matcher: ['/', '/(en|zh_TW)/:path*']
+  // matcher: ['/', '/(' + locales.join('|') + ')/:path*']
 };

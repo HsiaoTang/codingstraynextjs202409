@@ -1,21 +1,25 @@
-import { Button, ButtonGroup } from '@chakra-ui/react'
-import { Flex, Box, Text, Image } from '@chakra-ui/react';
+import { Center, Grid, Text } from '@chakra-ui/react';
 import { useTranslations } from 'next-intl';
+import IndexGridComp from './_components/IndexGridComp';
+import IndexBackDrop from './_components/IndexBackDrop';
+import { indexGridPics } from '@/public/indexGridPicsSrc';
 
 export default function Page() {
   const t = useTranslations('index');
   return (
-    <Flex minHeight='100vh' background='green.50' boxShadow='content'>
-      <Button colorScheme='blue'>Click it 測試</Button>
-      <Box boxShadow='dark-lg' p='6' rounded='md' bg='white' zIndex='sticky'>
-        Dark lg
-      </Box>
-      <Box boxShadow='outline' p='6' rounded='md' bg='white'>
-        Outline
-      </Box>
-      <Box boxShadow='inner' p='6' rounded='md' bg='white'>
-        Inner
-      </Box>
-    </Flex>
+    <Grid
+      templateRows='repeat(4, 1fr)'
+      templateColumns='repeat(1, 1fr)'
+      minH='100vh'
+      gap={100}
+      background='green.50' 
+      boxShadow='content'
+      alignItems='center'
+    >
+      <IndexBackDrop />
+      <Text></Text>
+      <Center><IndexGridComp pics={indexGridPics} /></Center>
+
+    </Grid>
   );
 }

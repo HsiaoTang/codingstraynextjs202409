@@ -1,6 +1,12 @@
-import { useTranslations } from "next-intl";
+'use client'
 
-export default function messageFetcher(page: string, key: string) {
+import { useTranslations } from 'next-intl';
+
+const messageFetcher = (page: string, key: string) => {
   const t = useTranslations(page);
-  return t(key);
-}
+  const message = t(key);
+  
+  return message;
+};
+
+export default messageFetcher;
