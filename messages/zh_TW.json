@@ -5,6 +5,15 @@
     "zh_TW": "繁體中文",
     "en": "English",
     "website_intro_pt1": "分享經驗、分享心情",
-    "website_intro_pt2": "分享生命中的點點滴滴"
+    "website_intro_pt2": "分享生命中的點點滴滴",
+    "trending": "熱門",
+    "latest": "最新",
+    "category": "主題",
+    "nature": "自然",
+    "coding": "程式",
+    "art": "藝術",
+    "sport": "運動",
+    "politics": "政治",
+    "music": "音樂"
   }
 }

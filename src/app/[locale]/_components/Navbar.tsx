@@ -17,11 +17,9 @@ const Navbar: React.FC<NavbarProps> = ({ picPath, searchKey}) => {
   useEffect(() => {
     const handleScroll = () => {
       const pageHeight: number = window.innerHeight;
-      console.log(pageHeight);
       const scrollTop: number = window.scrollY
       if (scrollTop > pageHeight * 0.7) {
         setIsScrolled(true);
-        console.log(scrollTop);
       } else {
         setIsScrolled(false);
       }

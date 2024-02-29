@@ -5,7 +5,7 @@ import { Center } from '@chakra-ui/react';
 import messageFetcher from '@/src/i18nConfig/msgFetcher';
 
 
-const IndexGridComp: React.FC = () => {
+const IndexBackDrop: React.FC = () => {
   return (
     <Center 
       bgImage='url("/imgs/index/indexBackDrop.jpg")'
@@ -15,6 +15,7 @@ const IndexGridComp: React.FC = () => {
       minW='100vw'
       height='70vh'
       p='0'
+      mb='0'
     >
       <Center 
         fontSize='4xl' 
@@ -32,4 +33,4 @@ const IndexGridComp: React.FC = () => {
   );
 }
 
-export default IndexGridComp;
+export default IndexBackDrop;
