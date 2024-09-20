@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import reducers from './reducers';
 
 export const makeStore = () => {
   return configureStore({
-    reducer: reducers
+    reducer: {
+
+    }
   });
 };
 

@@ -15,5 +15,21 @@
     "sport": "Sport",
     "politics": "Politics",
     "music": "Music"
+  },
+  "member": {
+    "title": "CodingStray",
+    "log_in": "Log in",
+    "sign_up": "Sign Up",
+    "nickname": "Nickname",
+    "username": "Username",
+    "password": "Password",
+    "birthday": "Birthday",
+    "gender": "Gender",
+    "picture": "Avatar",
+    "about": "About",
+    "male": "Male",
+    "female": "Female",
+    "select_gender": "Select Gender",
+    "about_user": "Share some interesting things about yourself."
   }
 }

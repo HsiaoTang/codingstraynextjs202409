@@ -9,7 +9,7 @@ export default function Page() {
     <Grid
       templateRows='70vh 120vh'
       templateColumns='1fr'
-      minH='100vh'
+      minH='190vh'
       gap={0}
       background='green.50' 
       boxShadow='content'

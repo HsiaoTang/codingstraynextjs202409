@@ -15,5 +15,21 @@
     "sport": "運動",
     "politics": "政治",
     "music": "音樂"
+  },
+  "member": {
+    "title": "CodingStray",
+    "log_in": "登入",
+    "sign_up": "註冊",
+    "nickname": "暱稱",
+    "username": "帳號",
+    "password": "密碼",
+    "birthday": "生日",
+    "gender": "性別",
+    "picture": "頭像",
+    "about": "關於你",
+    "male": "男",
+    "female": "女",
+    "select_gender": "請選擇性別",
+    "about_user": "分享一些關於你有趣的事情。"
   }
 }

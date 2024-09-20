@@ -1,9 +1,9 @@
 'use client'
 
-import { Progress } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { Progress } from '@chakra-ui/react';
+import { useEffect, useState } from 'react';
 
-const LoadingProgress = () => {
+const LoadingProgress: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [pageLoadProgress, setPageLoadProgress] = useState(0);
 
@@ -20,12 +20,12 @@ const LoadingProgress = () => {
       }
     };
 
-    window.addEventListener("load", handleLoad);
-    window.addEventListener("progress", handleProgress);
+    window.addEventListener('load', handleLoad);
+    window.addEventListener('progress', handleProgress);
 
     return () => {
-      window.removeEventListener("load", handleLoad);
-      window.removeEventListener("progress", handleProgress);
+      window.removeEventListener('load', handleLoad);
+      window.removeEventListener('progress', handleProgress);
     };
   }, []);
 

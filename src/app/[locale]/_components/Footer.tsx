@@ -6,18 +6,15 @@ import messageFetcher from '@/src/i18nConfig/msgFetcher';
 import { locales } from '@/src/config';
 import { useLocale } from 'next-intl';
 import { useRouter } from 'next/navigation'
+import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 
-interface FooterProps {
-  zIndex: string
-}
-
-const Footer: React.FC<FooterProps> = (zIndex) => {
-  const currentYear = new Date().getFullYear();
-  const router = useRouter();
-  const switchLocale = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    let currentUrl = window.location.href;
-    const [,,, locale, ...segment] = currentUrl.split('/');
-    currentUrl = '/' + event.target.value + segment.join('/');
+const Footer: React.FC = () => {
+  const currentYear: number = new Date().getFullYear();
+  const router: AppRouterInstance = useRouter();
+  const switchLocale: (e: React.ChangeEvent<HTMLSelectElement>) => void = (e) => {
+    let currentUrl: string = window.location.href;
+    const [,,, locale, ...segment]: string[] = currentUrl.split('/');
+    currentUrl = '/' + e.target.value + segment.join('/');
     router.push(currentUrl, { scroll: false });
   }
   const currentLocale = useLocale();
@@ -29,9 +26,7 @@ const Footer: React.FC<FooterProps> = (zIndex) => {
       </Center>
       <Flex flex='1'>
         <Spacer flex='3'/>
-        <Select icon={<> </>} textAlign='center' flex='1' focusBorderColor='green.50' bg='green.50'
-        onChange={switchLocale}
-        value={currentLocale}>
+        <Select icon={<> </>} textAlign='center' w='120px' focusBorderColor='green.50' bg='green.50' onChange={switchLocale} value={currentLocale}>
           {locales.map((locale: string) => (
             <option key={locale} value={locale}>
               {messageFetcher('index', locale)}

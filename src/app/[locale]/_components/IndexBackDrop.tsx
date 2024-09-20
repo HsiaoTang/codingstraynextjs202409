@@ -18,7 +18,7 @@ const IndexBackDrop: React.FC = () => {
       mb='0'
     >
       <Center 
-        fontSize='4xl' 
+        fontSize='3xl' 
         as='b' 
         color='white'
         minW='100vw'

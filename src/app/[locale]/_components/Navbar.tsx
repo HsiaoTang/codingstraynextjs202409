@@ -1,10 +1,11 @@
 'use client'
 
 import React from 'react';
-import { Flex, Text, Image, InputGroup, Input, InputLeftElement, Stack, Avatar } from '@chakra-ui/react';
-import { SearchIcon } from '../../UIConfig/iconConfig';
+import { Flex, Text, Image, InputGroup, Input, InputLeftElement, Button, Avatar, useDisclosure } from '@chakra-ui/react';
+import { SearchIcon } from '@chakra-ui/icons';
 import { useState, useEffect } from 'react';
 import messageFetcher from '@/src/i18nConfig/msgFetcher';
+import MemberDrawer from './member/MemberDrawer';
 
 interface NavbarProps {
   picPath: string,
@@ -13,34 +14,35 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ picPath, searchKey}) => {
   const [isScrolled, setIsScrolled] = useState(false);
-
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const handleScroll: () => void = () => {
+    const pageHeight: number = window.innerHeight;
+    const scrollTop: number = window.scrollY;
+    if (scrollTop > pageHeight * 0.7) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  };
+  
   useEffect(() => {
-    const handleScroll = () => {
-      const pageHeight: number = window.innerHeight;
-      const scrollTop: number = window.scrollY
-      if (scrollTop > pageHeight * 0.7) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
   return (
-    <Flex 
-      display='flex' 
-      // bg={'green.100'}
+    <Flex
+      display='flex'
       bg={isScrolled? 'green.100': 'transparent'}
       align='center' 
       h='60px'
       p='1'
       zIndex='modal'
-      w="100%"
+      w='100%'
       position='fixed'
     >
       <Flex flex='1' align='center'>
@@ -58,7 +60,6 @@ const Navbar: React.FC<NavbarProps> = ({ picPath, searchKey}) => {
           <Text
             fontSize='large' 
             color={isScrolled? 'green.1000': 'white'}
-            // color='green.1000'
             as='b'
             minW='150px'
             mr='5'
@@ -76,7 +77,7 @@ const Navbar: React.FC<NavbarProps> = ({ picPath, searchKey}) => {
         </InputGroup>
       </Flex>
       <Flex flex='1' justify='end'>
-        <a href='/'>
+        <Button variant='unstyled' onClick={onOpen}>
           <Avatar
             mr='2'
             bg='green.700'
@@ -84,7 +85,8 @@ const Navbar: React.FC<NavbarProps> = ({ picPath, searchKey}) => {
             boxShadow='0 0 0 0.5px white'
           >
           </Avatar>
-        </a>
+        </Button>
+        <MemberDrawer isOpenMemberDrawer={isOpen} onCloseMemberDrawer={onClose} />
       </Flex>
     </Flex>
   );
