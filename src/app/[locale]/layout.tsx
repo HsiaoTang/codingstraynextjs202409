@@ -41,7 +41,7 @@ export default function RootLayout({
           <LoadingProgress />
           <Navbar picPath='' searchKey=''/>
             {children}
-          <Footer zIndex='sticky'/>
+          <Footer />
         </CombinedProvider>
       </body>
     </html>
