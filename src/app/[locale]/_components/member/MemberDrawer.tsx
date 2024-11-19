@@ -1,33 +1,62 @@
-import { Drawer, DrawerOverlay, DrawerHeader, DrawerContent, Button, Box, Grid, useDisclosure } from '@chakra-ui/react';
-import messageFetcher from '@/src/i18nConfig/msgFetcher';
+'use client'
+import { Drawer, DrawerOverlay, DrawerHeader, DrawerContent, Button, Box, Grid } from '@chakra-ui/react';
+import msgFetcher from '@/src/i18nConfig/msgFetcher';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faRightToBracket, faUserPlus, IconDefinition } from '@fortawesome/free-solid-svg-icons';
-import MemberSignUpModal from './MemberSignUpModal';
-import MemberLogInModal from './MemberLogInModal';
+import { faUserPlus, faRightToBracket, faRightFromBracket, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { getKcInstance } from '@/src/app/KeycloakConfig/KeyCloakProvier';
+import { getItemFromLocalStorage, setItemToLocalStorage } from '@/src/app/utils/helpers';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/src/app/ReduxConfig/store';
 
 interface MemberDrawerProps {
   isOpenMemberDrawer: boolean,
   onCloseMemberDrawer: VoidFunction,
 }
 
-
-
 const MemberDrawer: React.FC<MemberDrawerProps> = ({ isOpenMemberDrawer, onCloseMemberDrawer }) => {
-  const { isOpen: isOpenModalSignUp, onOpen: onOpenModalSignUp, onClose: onCloseModalSignUp } = useDisclosure();
-  const { isOpen: isOpenModalLogIn, onOpen: onOpenModalLogIn, onClose: onCloseModalLogIn } = useDisclosure();
-  const memberFuncs: Array<{ icon: IconDefinition, funcName: string, onOpen: VoidFunction }> = [
-    { 
-      icon: faRightToBracket,
-      funcName: 'log_in',
-      onOpen: onOpenModalLogIn
-    },
+  // const [authenticated, setAuthenticated] = useState<boolean>(false);
+  // useEffect(() => {
+  //   const authStatus = getItemFromLocalStorage<boolean>('authenticated', false);
+  //   setAuthenticated(authStatus);
+  // }, []);
+  const authenticated = true;
+  
+  const memberFuncs: Array<{ icon: IconDefinition, funcName: string, func: () => void, display: boolean }> = [
     {
       icon: faUserPlus,
       funcName: 'sign_up',
-      onOpen: onOpenModalSignUp
+      func: () => {
+        if(authenticated) {
+          getKcInstance('check-sso').register();
+        }
+      },
+      display: (authenticated),
+    },
+    { 
+      icon: faRightToBracket,
+      funcName: 'log_in',
+      func: async () => {
+        if(authenticated) {
+          getKcInstance('check-sso').login();
+          setItemToLocalStorage<boolean>('authStatusChanging', true);
+        }
+      },
+      display: (authenticated),
+    },
+    {
+      icon: faRightFromBracket,
+      funcName: 'log_out',
+      func: async () => {
+        if(authenticated) {
+          getKcInstance('check-sso').logout();
+          setItemToLocalStorage<boolean>('authStatusChanging', true);
+        }
+      },
+      display: (authenticated),
     },
   ];
-
+  
   return(
     <Drawer
       size='xs'
@@ -38,23 +67,22 @@ const MemberDrawer: React.FC<MemberDrawerProps> = ({ isOpenMemberDrawer, onClose
       <DrawerOverlay />
       <DrawerContent bg='green.50' maxWidth='200px'>
         <DrawerHeader></DrawerHeader>
-        {memberFuncs.map(func => (
-          <Button key={func.funcName} borderRadius='0' colorScheme='green' variant='ghost' onClick={func.onOpen}>
+        {memberFuncs.map(func => 
+        func.display && (
+          <Button key={func.funcName} borderRadius='0' colorScheme='green' variant='ghost' onClick={func.func}>
             <Grid templateColumns='repeat(2, 1fr)' alignItems='center'>
-              <Box bg='red' w='50px'>
+              <Box w='50px'>
                 <FontAwesomeIcon icon={func.icon} />
               </Box>
-              <Box bg='blue' w='100px' textAlign='start' color='green.900'>
-                {messageFetcher('member', func.funcName)}
+              <Box w='100px' textAlign='start' color='green.900'>
+                {msgFetcher('member', func.funcName)}
               </Box>
             </Grid>
           </Button>
         ))}
-        <MemberSignUpModal isOpenMemberSignUpModal={isOpenModalSignUp} onCloseMemberSignUpModal={onCloseModalSignUp}></MemberSignUpModal>
-        <MemberLogInModal isOpenMemberLogInModal={isOpenModalLogIn} onCloseMemberLogInModal={onCloseModalLogIn}></MemberLogInModal>
       </DrawerContent>
     </Drawer>
   );
-};
+}
 
 export default MemberDrawer;

@@ -12,5 +12,5 @@ export default getRequestConfig(async ({locale}) => {
           import('../../messages/zh_TW.json')
         : import('../../messages/en.json'))
     ).default
-  };
+  }
 });

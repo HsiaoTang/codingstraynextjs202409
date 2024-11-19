@@ -1,6 +1,6 @@
 'use client'
 
-import messageFetcher from '@/src/i18nConfig/msgFetcher';
+import msgFetcher from '@/src/i18nConfig/msgFetcher';
 import { Tab, Tabs, TabList, TabPanel, TabPanels } from '@chakra-ui/react';
 import React from 'react';
 import IndexGridComp from './IndexGridComp';
@@ -29,7 +29,7 @@ const TabControl: React.FC = () => {
             _selected={{ bg: 'green.300' ,boxShadow: 'base' }}
             minW='30px'
           >
-            {messageFetcher('index', label)}
+            {msgFetcher('index', label)}
           </Tab>
         ))}
       </TabList>

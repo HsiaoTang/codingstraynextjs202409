@@ -4,7 +4,7 @@ import React from 'react';
 import { indexGridPic } from '@/public/indexGridPicsSrc';
 import { Grid, GridItem, Center } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
-import messageFetcher from '@/src/i18nConfig/msgFetcher';
+import msgFetcher from '@/src/i18nConfig/msgFetcher';
 
 interface IndexGridProps {
   pics: indexGridPic[],
@@ -23,14 +23,14 @@ const IndexGridComp: React.FC<IndexGridProps> = ({ pics }) => {
       } else {
         setIsResized(false);
       }
-    };
+    }
 
     handleResized();
     window.addEventListener('resize', handleResized);
 
     return () => {
       window.removeEventListener('resized', handleResized);
-    };
+    }
   }, []);
 
   return (
@@ -70,7 +70,7 @@ const IndexGridComp: React.FC<IndexGridProps> = ({ pics }) => {
                 backdropContrast: '30%'
               }}
             >
-              {messageFetcher('index', pic.title)}
+              {msgFetcher('index', pic.title)}
             </Center>
           </Center>
         </GridItem>

@@ -11,4 +11,4 @@ export const config = {
   // Match only internationalized pathnames
   matcher: ['/', '/(en|zh_TW)/:path*']
   // matcher: ['/', '/(' + locales.join('|') + ')/:path*']
-};
+}

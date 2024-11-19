@@ -9,6 +9,7 @@ import CombinedProvider from './CombinedProviders';
 import StoreProvider from '../ReduxConfig/StoreProvider';
 import { NextIntlClientProvider, useMessages } from 'next-intl';
 import LoadingProgress from './_components/LoadingProgress';
+import { KeycloakProvider } from '../KeycloakConfig/KeyCloakProvier';
 
 config.autoAddCss = false; 
 
@@ -37,6 +38,7 @@ export default function RootLayout({
           [UIProvider, {}],
           [StoreProvider, {}],
           [NextIntlClientProvider, {messages: useMessages()}],
+          [KeycloakProvider, {}],
         ]}>
           <LoadingProgress />
           <Navbar picPath='' searchKey=''/>

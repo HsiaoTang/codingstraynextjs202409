@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Center } from '@chakra-ui/react';
-import messageFetcher from '@/src/i18nConfig/msgFetcher';
+import msgFetcher from '@/src/i18nConfig/msgFetcher';
 
 
 const IndexBackDrop: React.FC = () => {
@@ -26,8 +26,8 @@ const IndexBackDrop: React.FC = () => {
         backdropFilter='auto' backdropBrightness='50%'
         textAlign='center'
       >
-        {messageFetcher('index', 'website_intro_pt1')}<br/>
-        {messageFetcher('index', 'website_intro_pt2')}
+        {msgFetcher('index', 'website_intro_pt1')}<br/>
+        {msgFetcher('index', 'website_intro_pt2')}
       </Center>
     </Center>
   );

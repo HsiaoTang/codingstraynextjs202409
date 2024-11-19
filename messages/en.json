@@ -20,6 +20,7 @@
     "title": "CodingStray",
     "log_in": "Log in",
     "sign_up": "Sign Up",
+    "log_out": "Log Out",
     "nickname": "Nickname",
     "username": "Username",
     "password": "Password",
@@ -30,6 +31,7 @@
     "male": "Male",
     "female": "Female",
     "select_gender": "Select Gender",
-    "about_user": "Share some interesting things about yourself."
+    "about_user": "Share some interesting things about yourself.",
+    "test": "test"
   }
 }

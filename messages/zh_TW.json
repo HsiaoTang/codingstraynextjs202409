@@ -20,6 +20,7 @@
     "title": "CodingStray",
     "log_in": "登入",
     "sign_up": "註冊",
+    "log_out": "登出",
     "nickname": "暱稱",
     "username": "帳號",
     "password": "密碼",
@@ -30,6 +31,7 @@
     "male": "男",
     "female": "女",
     "select_gender": "請選擇性別",
-    "about_user": "分享一些關於你有趣的事情。"
+    "about_user": "分享一些關於你有趣的事情。",
+    "test": "測試"
   }
 }

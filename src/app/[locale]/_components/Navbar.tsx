@@ -4,7 +4,7 @@ import React from 'react';
 import { Flex, Text, Image, InputGroup, Input, InputLeftElement, Button, Avatar, useDisclosure } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons';
 import { useState, useEffect } from 'react';
-import messageFetcher from '@/src/i18nConfig/msgFetcher';
+import msgFetcher from '@/src/i18nConfig/msgFetcher';
 import MemberDrawer from './member/MemberDrawer';
 
 interface NavbarProps {
@@ -23,7 +23,7 @@ const Navbar: React.FC<NavbarProps> = ({ picPath, searchKey}) => {
     } else {
       setIsScrolled(false);
     }
-  };
+  }
   
   useEffect(() => {
     handleScroll();
@@ -31,7 +31,7 @@ const Navbar: React.FC<NavbarProps> = ({ picPath, searchKey}) => {
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-    };
+    }
   }, []);
 
   return (
@@ -64,7 +64,7 @@ const Navbar: React.FC<NavbarProps> = ({ picPath, searchKey}) => {
             minW='150px'
             mr='5'
           >
-            {messageFetcher('index', 'title')}
+            {msgFetcher('index', 'title')}
           </Text>
         </a>
       </Flex>
@@ -73,7 +73,7 @@ const Navbar: React.FC<NavbarProps> = ({ picPath, searchKey}) => {
           <InputLeftElement>
             <SearchIcon color='gray.400'/>
           </InputLeftElement>
-          <Input placeholder={messageFetcher('index', 'search')} maxW='800px' focusBorderColor='green.50' bg='green.50' />
+          <Input placeholder={msgFetcher('index', 'search')} maxW='800px' focusBorderColor='green.50' bg='green.50' />
         </InputGroup>
       </Flex>
       <Flex flex='1' justify='end'>
