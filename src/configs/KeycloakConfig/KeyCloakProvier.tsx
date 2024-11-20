@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect }from 'react';
 import Keycloak, { KeycloakOnLoad } from 'keycloak-js';
-import { getItemFromLocalStorage, removeItemFromLocalStorage, setItemToLocalStorage } from '../utils/helpers';
+import { getItemFromLocalStorage, removeItemFromLocalStorage, setItemToLocalStorage } from '../../app/utils/helpers';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../ReduxConfig/store';
 import { setAuthenticated } from '../ReduxConfig/slices/memberSlice';

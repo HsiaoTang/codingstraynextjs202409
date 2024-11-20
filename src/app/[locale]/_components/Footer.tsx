@@ -2,13 +2,13 @@
 
 import React from 'react';
 import { Flex, Center, Text, Spacer, Select } from '@chakra-ui/react';
-import msgFetcher from '@/src/i18nConfig/msgFetcher';
-import { locales } from '@/src/config';
+import msgFetcher from '@/src/configs/i18nConfig/msgFetcher';
 import { useLocale } from 'next-intl';
 import { useRouter } from 'next/navigation'
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 
 const Footer: React.FC = () => {
+  const locales = process.env.NEXT_PUBLIC_LOCALES?.split(',') || [];
   const currentYear: number = new Date().getFullYear();
   const router: AppRouterInstance = useRouter();
   const switchLocale: (e: React.ChangeEvent<HTMLSelectElement>) => void = (e) => {

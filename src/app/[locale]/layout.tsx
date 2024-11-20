@@ -2,14 +2,14 @@ import type { Metadata } from 'next'
 import { Noto_Serif_TC } from 'next/font/google'
 import Navbar from './_components/Navbar';
 import Footer from './_components/Footer';
-import UIProvider from '../UIConfig/UIProvider';
+import UIProvider from '../../configs/UIConfig/UIProvider';
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import CombinedProvider from './CombinedProviders';
-import StoreProvider from '../ReduxConfig/StoreProvider';
+import StoreProvider from '../../configs/ReduxConfig/StoreProvider';
 import { NextIntlClientProvider, useMessages } from 'next-intl';
 import LoadingProgress from './_components/LoadingProgress';
-import { KeycloakProvider } from '../KeycloakConfig/KeyCloakProvier';
+import { KeycloakProvider } from '../../configs/KeycloakConfig/KeyCloakProvier';
 
 config.autoAddCss = false; 
 

@@ -4,7 +4,7 @@ import React from 'react';
 import { indexGridPic } from '@/public/indexGridPicsSrc';
 import { Grid, GridItem, Center } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
-import msgFetcher from '@/src/i18nConfig/msgFetcher';
+import msgFetcher from '@/src/configs/i18nConfig/msgFetcher';
 
 interface IndexGridProps {
   pics: indexGridPic[],

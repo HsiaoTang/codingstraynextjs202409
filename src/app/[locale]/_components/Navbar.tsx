@@ -4,7 +4,7 @@ import React from 'react';
 import { Flex, Text, Image, InputGroup, Input, InputLeftElement, Button, Avatar, useDisclosure } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons';
 import { useState, useEffect } from 'react';
-import msgFetcher from '@/src/i18nConfig/msgFetcher';
+import msgFetcher from '@/src/configs/i18nConfig/msgFetcher';
 import MemberDrawer from './member/MemberDrawer';
 
 interface NavbarProps {
