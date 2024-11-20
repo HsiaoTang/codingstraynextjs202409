@@ -35,6 +35,7 @@ export const KeycloakProvider = ({ children } : { children: React.ReactNode }) =
         dispatch(setAuthenticated(keycloak.authenticated?? false));
         setItemToLocalStorage<boolean>('authenticated', keycloak.authenticated?? false);
         console.log(keycloak);
+        console.log(keycloak.token);
       }).catch((e) => { console.error(e); });
     }
   }, [authStatusChanging]);
