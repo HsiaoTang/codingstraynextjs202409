@@ -1,5 +1,5 @@
 import { NextRequest } from 'next/server';
-import i18nMiddleware from '@/src/configs/i18nConfig/i18nMiddleware';
+import i18nMiddleware from '@/src/configs/i18n/i18nMiddleware';
 
 const locales = process.env.NEXT_PUBLIC_LOCALES?.split(',') || [];
 

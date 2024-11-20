@@ -1,13 +1,13 @@
 'use client'
 import { Drawer, DrawerOverlay, DrawerHeader, DrawerContent, Button, Box, Grid } from '@chakra-ui/react';
-import msgFetcher from '@/src/configs/i18nConfig/msgFetcher';
+import msgFetcher from '@/src/configs/i18n/msgFetcher';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserPlus, faRightToBracket, faRightFromBracket, IconDefinition } from '@fortawesome/free-solid-svg-icons';
-import { getKcInstance } from '@/src/configs/KeycloakConfig/KeyCloakProvier';
-import { getItemFromLocalStorage, setItemToLocalStorage } from '@/src/app/utils/helpers';
+import { getKcInstance } from '@/src/configs/keycloak/KeyCloakProvier';
+import { getItemFromLocalStorage, setItemToLocalStorage } from '@/src/utils/helpers';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { RootState } from '@/src/configs/ReduxConfig/store';
+import { RootState } from '@/src/configs/store/store';
 
 interface MemberDrawerProps {
   isOpenMemberDrawer: boolean,

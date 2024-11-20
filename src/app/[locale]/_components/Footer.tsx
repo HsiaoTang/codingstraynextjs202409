@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Flex, Center, Text, Spacer, Select } from '@chakra-ui/react';
-import msgFetcher from '@/src/configs/i18nConfig/msgFetcher';
+import msgFetcher from '@/src/configs/i18n/msgFetcher';
 import { useLocale } from 'next-intl';
 import { useRouter } from 'next/navigation'
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';

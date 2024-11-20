@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Center } from '@chakra-ui/react';
-import msgFetcher from '@/src/configs/i18nConfig/msgFetcher';
+import msgFetcher from '@/src/configs/i18n/msgFetcher';
 
 
 const IndexBackDrop: React.FC = () => {

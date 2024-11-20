@@ -1,6 +1,6 @@
 'use client'
 
-import msgFetcher from '@/src/configs/i18nConfig/msgFetcher';
+import msgFetcher from '@/src/configs/i18n/msgFetcher';
 import { Tab, Tabs, TabList, TabPanel, TabPanels } from '@chakra-ui/react';
 import React from 'react';
 import IndexGridComp from './IndexGridComp';

@@ -1,10 +1,10 @@
 'use client'
 import React, { useEffect }from 'react';
 import Keycloak, { KeycloakOnLoad } from 'keycloak-js';
-import { getItemFromLocalStorage, removeItemFromLocalStorage, setItemToLocalStorage } from '../../app/utils/helpers';
+import { getItemFromLocalStorage, removeItemFromLocalStorage, setItemToLocalStorage } from '../../utils/helpers';
 import { useDispatch } from 'react-redux';
-import { AppDispatch } from '../ReduxConfig/store';
-import { setAuthenticated } from '../ReduxConfig/slices/memberSlice';
+import { AppDispatch } from '../store/store';
+import { setAuthenticated } from '../store/slices/memberSlice';
 
 export const getKcInstance: (onLoadType: KeycloakOnLoad) => Keycloak = (onLoadType) => {
   const keycloak: Keycloak = new Keycloak({
@@ -29,7 +29,6 @@ export const KeycloakProvider = ({ children } : { children: React.ReactNode }) =
   const authStatusChanging = getItemFromLocalStorage<boolean>('authStatusChanging', false);
   const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
-    console.log('authStatusChanging: ' + getItemFromLocalStorage<boolean>('authStatusChanging', false));
     if(getItemFromLocalStorage<boolean>('authStatusChanging', false)) {
       removeItemFromLocalStorage('authStatusChanging');
       getKcInstanceInited('check-sso').then((keycloak) => {
