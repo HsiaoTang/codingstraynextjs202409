@@ -5,6 +5,7 @@ import { getItemFromLocalStorage, removeItemFromLocalStorage, setItemToLocalStor
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../store/store';
 import { setAuthenticated } from '../store/slices/memberSlice';
+import { getCookie } from 'cookies-next';
 
 export const getKcInstance: (onLoadType: KeycloakOnLoad) => Keycloak = (onLoadType) => {
   const keycloak: Keycloak = new Keycloak({
@@ -32,10 +33,9 @@ export const KeycloakProvider = ({ children } : { children: React.ReactNode }) =
     if(getItemFromLocalStorage<boolean>('authStatusChanging', false)) {
       removeItemFromLocalStorage('authStatusChanging');
       getKcInstanceInited('check-sso').then((keycloak) => {
+        console.log(keycloak);
         dispatch(setAuthenticated(keycloak.authenticated?? false));
         setItemToLocalStorage<boolean>('authenticated', keycloak.authenticated?? false);
-        console.log(keycloak);
-        console.log(keycloak.token);
       }).catch((e) => { console.error(e); });
     }
   }, [authStatusChanging]);
